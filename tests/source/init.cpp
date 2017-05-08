@@ -29,5 +29,21 @@ SCENARIO("sub")
     
     REQUIRE( rv == 2.8);
 }
+SCENARIO("mult")
+{
+    complex r(4,5);
+    double rv = r.mult(r);
+    
+    REQUIRE( rv == 8);
+}
+SCENARIO("div")
+{
+    complex r(4,5);
+    double rv = r.div(r);
+    
+    REQUIRE( rv == 2.5);
+}
+
+
 
 
