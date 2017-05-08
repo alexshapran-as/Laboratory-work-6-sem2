@@ -11,16 +11,16 @@ SCENARIO("real")
 SCENARIO("imaginary")
 {
     complex r(4,5);
-    double rv = r.real();
+    double rv = r.imaginary();
     
     REQUIRE( rv == 5);
 }
 SCENARIO("add")
 {
     complex r(4,5);
-    double rv = r.real();
+    double rv = r.add(r);
     
-    REQUIRE( rv == 5);
+    REQUIRE( rv == 5.1);
 }
 
 
