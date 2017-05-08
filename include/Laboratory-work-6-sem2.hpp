@@ -9,7 +9,7 @@ private:
 public:	
 	complex() { a = 0; b = 0; }
 
-	complex(double &a_new, double &b_new)
+	complex(double a_new, double b_new)
 	{
 		a = a_new;
 		b = b_new;
