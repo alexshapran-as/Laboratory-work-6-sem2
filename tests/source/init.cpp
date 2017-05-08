@@ -3,9 +3,8 @@
 
 SCENARIO("real")
 {
-    complex com_num(4,5);
-    complex r;
-    int rv = r.real();
+    complex r(4,5);
+    double rv = r.real();
     
     REQUIRE( rv == 4);
 }
