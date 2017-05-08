@@ -27,7 +27,7 @@ SCENARIO("sub")
     complex r(4,5);
     double rv = r.sub(r);
     
-    REQUIRE( rv == 3.8);
+    REQUIRE( rv == 2.8);
 }
 
 
