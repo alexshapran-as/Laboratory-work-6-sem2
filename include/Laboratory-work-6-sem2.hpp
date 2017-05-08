@@ -54,30 +54,25 @@ public:
 		return b_new;
 	}
 
-	void mult(complex complex_num)
+	double mult(complex complex_num)
 	{
 		double a_new = 0;
 		double b_new = 0;
-		int h = 0;
-
-		cout << endl << "Print the integer number for multiplication: " << endl;
-		cin >> h;
+		int h = 2;
 
 		a_new = complex_num.real()*h;
 		b_new = complex_num.imaginary()*h;
 
 		complex(a_new,b_new);
+		return a_new;
 	}
 
-	int div(complex complex_num)
+	double div(complex complex_num)
 	{
 		double a_new = 0;
 		double b_new = 0;
 		int h = 0;
-		int temp = 0;
-
-		cout << endl << "Print the integer number for division: " << endl;
-		cin >> temp;
+		int temp = 2;
 		try
 		{
 			if(temp == 0) throw 1;
@@ -93,5 +88,6 @@ public:
 		b_new = (double)complex_num.imaginary()/h;
 
 		complex(a_new,b_new);
+		return b_new;
 	}
 };
