@@ -26,17 +26,18 @@ public:
 	double real() { return a; }
 	double imaginary() { return b; }
 
-	void add(complex complex_num)
+	double add(complex complex_num)
 	{
 		double a_new = 0;
 		double b_new = 0;
 
-		cout << endl << "Print the complex number for summation: " << endl;
-		cin >> a_new; cin >> b_new;
+		a_new = 1.1;
+		b_new = 2.2;
 		a_new = complex_num.real()+a_new;
 		b_new = complex_num.imaginary()+b_new;
 
 		complex(a_new,b_new);
+		return a_new;
 	}
 
 	void sub(complex complex_num)
