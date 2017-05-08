@@ -22,5 +22,12 @@ SCENARIO("add")
     
     REQUIRE( rv == 5.1);
 }
+SCENARIO("sub")
+{
+    complex r(4,5);
+    double rv = r.sub(r);
+    
+    REQUIRE( rv == 3.8);
+}
 
 
