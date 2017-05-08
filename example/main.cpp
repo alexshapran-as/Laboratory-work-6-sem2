@@ -19,7 +19,5 @@ int main(void)
 	delete ptr; 
 	ptr = NULL;
 
-	cout << endl << endl << "Press any button to exit the program " << endl;
-	_getch();
 	return 0;
 }
