@@ -6,40 +6,43 @@ using namespace std;
 class complex
 {
 private: 
-	double a = 0;
-	double b = 0;
+	double a;
+	double b;
 
 public:	
-	complex() { a = 0; b = 0; }
+	complex() { a = 0.0; b = 0.0; }
 
-	complex(double &a_new, double &b_new)
+	complex(double &a, double &b)
 	{
-		a = a_new;
-		b = b_new;
-		print(a,b);
+		this->a = a;
+		this->b = b;
 	}
 
-	void print(double a, double b)
+	void printf(ostream& print)
 	{
-		cout << "z = " << a;
+		print << "z = " << a;
 		if ( b >= 0 ) cout << " + " << b << "i";
-		else cout << " - " << b*(-1) << "i";
+		else if ( b == 1 ) cout << " + " << "i"; 
+		else if ( b == -1 ) cout << " - " << "i";
+		else if ( b < 0 ) cout << " - " << b*(-1) << "i";
 	}
+
+	friend ostream & operator <<(ostream& print, const complex& complex_num); 
 
 	double real() { return a; }
 	double imaginary() { return b; }
 
-	void add(complex complex_num)
+	void add(complex& complex_num)
 	{
 		double a_new = 0;
 		double b_new = 0;
 
 		cout << endl << "Print the complex number for summation: " << endl;
 		cin >> a_new; cin >> b_new;
-		a_new = complex_num.real()+a_new;
-		b_new = complex_num.imaginary()+b_new;
+		a = complex_num.real()+a_new;
+		b = complex_num.imaginary()+b_new;
 
-		complex(a_new,b_new);
+		complex(a,b);
 	}
 
 	void sub(complex complex_num)
@@ -49,8 +52,8 @@ public:
 		
 		cout << endl << "Print the complex number for subtraction: " << endl;
 		cin >> a_new; cin >> b_new;
-		a_new = complex_num.real()-a_new;
-		b_new = complex_num.imaginary()-b_new;
+		a = complex_num.real()-a_new;
+		b = complex_num.imaginary()-b_new;
 
 		complex(a_new,b_new);
 	}
@@ -64,10 +67,24 @@ public:
 		cout << endl << "Print the integer number for multiplication: " << endl;
 		cin >> h;
 
-		a_new = complex_num.real()*h;
-		b_new = complex_num.imaginary()*h;
+		a = complex_num.real()*h;
+		b = complex_num.imaginary()*h;
 
-		complex(a_new,b_new);
+		complex(a,b);
+	}
+
+	void mult_for_complex(complex complex_num)
+	{
+		double a_new = 0;
+		double b_new = 0;
+
+		cout << endl << "Print the complex number for multiplication: " << endl;
+		cin >> a_new; cin >> b_new;
+
+		a = complex_num.real()*a_new - complex_num.imaginary()*b_new;
+		b = complex_num.real()*b_new + complex_num.imaginary()*a_new;
+
+		complex(a,b);
 	}
 
 	int div(complex complex_num)
@@ -90,30 +107,39 @@ public:
 		}
 		h = temp;
 
-		a_new = (double)complex_num.real()/h;
-		b_new = (double)complex_num.imaginary()/h;
+		a = (double)complex_num.real()/h;
+		b = (double)complex_num.imaginary()/h;
 
-		complex(a_new,b_new);
+		complex(a,b);
 	}
 };
 
+	ostream& operator <<(ostream& print, complex& complex_num)
+	{
+		complex_num.printf(print);
+		return print;
+	}
+
 int main(void)
 {
-	double a = 0;
-	double b = 0;
-	complex *ptr = 0;
+	double a = 0.0;
+	double b = 0.0;
 
 	cout << "Print the real and imaginary parts of the complex number z = a + bi : " << endl;
 	cin >> a; cin >> b;
 
 	complex complex_num(a,b);
-	ptr->add(complex_num);
-	ptr->sub(complex_num);
-	ptr->mult(complex_num);
-	ptr->div(complex_num);
-
-	delete ptr; 
-	ptr = NULL;
+	cout << complex_num;
+	complex_num.add(complex_num);
+	cout << complex_num;
+	complex_num.sub(complex_num);
+	cout << complex_num;
+	complex_num.mult(complex_num);
+	cout << complex_num;
+	complex_num.mult_for_complex(complex_num);
+	cout << complex_num;
+	complex_num.div(complex_num);
+	cout << complex_num;
 
 	cout << endl << endl << "Press any button to exit the program " << endl;
 	_getch();
