@@ -119,7 +119,7 @@ public:
 		catch(int test)
 		{
 			//cout << endl << "[-] Exception " << test << ": It can not be divided by zero!!!" << endl;
-			return true;
+			return 0;
 		}
 		h = temp;
 
