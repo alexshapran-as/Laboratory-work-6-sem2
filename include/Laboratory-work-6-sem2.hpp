@@ -7,10 +7,10 @@ private:
 	double complex_real;
 	double complex_imaginary;
 
-	void add_com_num(complex& complex_num);
-	void sub_com_num(complex complex_num);
-	void mult_com_num(complex complex_num);
-	void mult_for_com_num(complex complex_num);
+	double add_com_num(complex& complex_num);
+	double sub_com_num(complex complex_num);
+	double mult_com_num(complex complex_num);
+	double mult_for_com_num(complex complex_num);
 	bool div_com_num(complex complex_num);
 
 public:	
@@ -59,7 +59,7 @@ public:
 	}
 };
 
-	void complex:: add_com_num(complex& complex_num)
+	double complex:: add_com_num(complex& complex_num)
 	{
 		double real_new = 0.0;
 		double imaginary_new = 0.0;
@@ -70,9 +70,10 @@ public:
 		complex_imaginary = complex_num.imaginary()+imaginary_new;
 
 		complex(complex_real,complex_imaginary);
+		return complex_real;
 	}
 
-	void complex:: sub_com_num(complex complex_num)
+	double complex:: sub_com_num(complex complex_num)
 	{
 		double real_new = 0.0;
 		double imaginary_new = 0.0;
@@ -83,9 +84,10 @@ public:
 		complex_imaginary = complex_num.imaginary()-imaginary_new;
 
 		complex(complex_real,complex_imaginary);
+		return complex_real;
 	}
 
-	void complex:: mult_com_num(complex complex_num)
+	double complex:: mult_com_num(complex complex_num)
 	{
 		double real_new = 0.0;
 		double imaginary_new = 0.0;
@@ -98,9 +100,10 @@ public:
 		complex_imaginary = complex_num.imaginary()*h;
 
 		complex(complex_real,complex_imaginary);
+		return complex_real;
 	}
 
-	void complex:: mult_for_com_num(complex complex_num)
+	double complex:: mult_for_com_num(complex complex_num)
 	{
 		double real_new = 0.0;
 		double imaginary_new = 0.0;
@@ -112,6 +115,7 @@ public:
 		complex_imaginary = complex_num.real()*imaginary_new + complex_num.imaginary()*real_new;
 
 		complex(complex_real,complex_imaginary);
+		return complex_real;
 	}
 
 	bool complex:: div_com_num(complex complex_num)
