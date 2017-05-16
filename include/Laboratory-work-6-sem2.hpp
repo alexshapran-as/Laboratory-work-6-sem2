@@ -11,7 +11,7 @@ private:
 	double sub_com_num(complex complex_num);
 	double mult_com_num(complex complex_num);
 	double mult_for_com_num(complex complex_num);
-	bool div_com_num(complex complex_num);
+	int div_com_num(complex complex_num);
 
 public:	
 	complex() : complex_real(0.0), complex_imaginary(0.0) {};
@@ -53,7 +53,7 @@ public:
 		mult_for_com_num(complex_num);
 	}
 
-	bool div(complex complex_num)
+	int div(complex complex_num)
 	{
 		div_com_num(complex_num);
 	}
@@ -106,7 +106,7 @@ public:
 		return complex_real;
 	}
 
-	bool complex:: div_com_num(complex complex_num)
+	int complex:: div_com_num(complex complex_num)
 	{
 		int h = 0;
 		int temp = 0;
