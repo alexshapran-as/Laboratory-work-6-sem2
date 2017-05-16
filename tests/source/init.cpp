@@ -41,7 +41,7 @@ SCENARIO("mult_for_complex")
     complex r(4.2,2.8);
     double rv = r.mult(r);
     
-    REQUIRE( rv == -5);
+    REQUIRE( rv == 12.46);
 }
 /*SCENARIO("div")
 {
