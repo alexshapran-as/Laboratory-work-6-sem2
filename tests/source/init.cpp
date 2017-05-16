@@ -43,13 +43,6 @@ SCENARIO("mult_for_complex")
     
     REQUIRE( rv == 12.46);
 }
-/*SCENARIO("div")
-{
-    complex r(4,5);
-    int rv = r.div(r);
-    
-    REQUIRE( rv == 0);
-}*/
 
 
 
