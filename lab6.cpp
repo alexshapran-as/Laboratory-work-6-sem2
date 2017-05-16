@@ -89,8 +89,6 @@ public:
 
 	void complex:: mult_com_num(complex complex_num)
 	{
-		double real_new = 0.0;
-		double imaginary_new = 0.0;
 		int h = 0;
 
 		cout << endl << "Print the integer number for multiplication: " << endl;
@@ -118,8 +116,6 @@ public:
 
 	bool complex:: div_com_num(complex complex_num)
 	{
-		double real_new = 0.0;
-		double imaginary_new = 0.0;
 		int h = 0;
 		int temp = 0;
 
