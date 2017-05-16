@@ -36,6 +36,13 @@ SCENARIO("mult")
     
     REQUIRE( rv == 8);
 }
+SCENARIO(mult_for_complex")
+{
+    complex r(2,3);
+    double rv = r.mult(r);
+    
+    REQUIRE( rv == -5);
+}
 /*SCENARIO("div")
 {
     complex r(4,5);
