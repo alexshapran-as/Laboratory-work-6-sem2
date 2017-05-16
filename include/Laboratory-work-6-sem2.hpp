@@ -76,8 +76,6 @@ public:
 		double real_new = 1.2;
 		double imaginary_new = 0.0;
 		
-		cout << endl << "Print the real and imaginary parts of the complex number for subtraction: " << endl;
-		cin >> real_new; cin >> imaginary_new;
 		complex_real = complex_num.real()-real_new;
 		complex_imaginary = complex_num.imaginary()-imaginary_new;
 
@@ -113,7 +111,6 @@ public:
 		int h = 0;
 		int temp = 0;
 
-		cout << endl << "Print the integer number for division: " << endl;
 		cin >> temp;
 		try
 		{
@@ -121,7 +118,7 @@ public:
 		}
 		catch(int test)
 		{
-			cout << endl << "[-] Exception " << test << ": It can not be divided by zero!!!" << endl;
+			//cout << endl << "[-] Exception " << test << ": It can not be divided by zero!!!" << endl;
 			return true;
 		}
 		h = temp;
