@@ -20,7 +20,7 @@ SCENARIO("add")
     complex r(4,5);
     double rv = r.add(r);
     
-    REQUIRE( rv == 5.1);
+    REQUIRE( rv == 4.2);
 }
 SCENARIO("sub")
 {
