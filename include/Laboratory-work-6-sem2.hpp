@@ -4,75 +4,125 @@ using namespace std;
 class complex
 {
 private: 
-	double a = 0;
-	double b = 0;
+	double complex_real;
+	double complex_imaginary;
+
+	void add_com_num(complex& complex_num);
+	void sub_com_num(complex complex_num);
+	void mult_com_num(complex complex_num);
+	void mult_for_com_num(complex complex_num);
+	bool div_com_num(complex complex_num);
+
 public:	
-	complex() { a = 0; b = 0; }
+	complex() : complex_real(0.0), complex_imaginary(0.0) {};
 
-	complex(double a_new, double b_new)
+	complex(double complex_real_, double complex_imaginary_) : complex_real(complex_real_), complex_imaginary(complex_imaginary_) {};
+
+	void printf(ostream& print)
 	{
-		a = a_new;
-		b = b_new;
-		print(a,b);
+		print << "z = " << complex_real;
+		if ( complex_imaginary > 0 ) cout << " + " << complex_imaginary << "i";
+		else if ( complex_imaginary == 0 ) cout << endl;
+		else if ( complex_imaginary == 1 ) cout << " + " << "i"; 
+		else if ( complex_imaginary == -1 ) cout << " - " << "i";
+		else if ( complex_imaginary < 0 ) cout << " - " << complex_imaginary*(-1) << "i";
 	}
 
-	void print(double a, double b)
+	friend ostream & operator <<(ostream& print, const complex& complex_num); 
+
+	double real() { return complex_real; }
+	double imaginary() { return complex_imaginary; }
+
+	void add(complex& complex_num)
 	{
-		cout << "z = " << a;
-		if ( b >= 0 ) cout << " + " << b << "i";
-		else cout << " - " << b*(-1) << "i";
+		add_com_num(complex_num);
 	}
 
-	double real() { return a; }
-	double imaginary() { return b; }
-
-	double add(complex complex_num)
+	void sub(complex complex_num)
 	{
-		double a_new = 0;
-		double b_new = 0;
-
-		a_new = 1.1;
-		b_new = 2.2;
-		a_new = complex_num.real()+a_new;
-		b_new = complex_num.imaginary()+b_new;
-
-		complex(a_new,b_new);
-		return a_new;
+		sub_com_num(complex_num);
 	}
 
-	double sub(complex complex_num)
+	void mult(complex complex_num)
 	{
-		double a_new = 0;
-		double b_new = 0;
+		mult_com_num(complex_num);
+	}
+
+	void mult_for_complex(complex complex_num)
+	{
+		mult_for_com_num(complex_num);
+	}
+
+	bool div(complex complex_num)
+	{
+		div_com_num(complex_num);
+	}
+};
+
+	void complex:: add_com_num(complex& complex_num)
+	{
+		double real_new = 0.0;
+		double imaginary_new = 0.0;
+
+		cout << endl << "Print the real and imaginary parts of the complex number for summation: " << endl;
+		cin >> real_new; cin >> imaginary_new;
+		complex_real = complex_num.real()+real_new;
+		complex_imaginary = complex_num.imaginary()+imaginary_new;
+
+		complex(complex_real,complex_imaginary);
+	}
+
+	void complex:: sub_com_num(complex complex_num)
+	{
+		double real_new = 0.0;
+		double imaginary_new = 0.0;
 		
-		a_new = 1.1;
-		b_new = 2.2;
-		a_new = complex_num.real()-a_new;
-		b_new = complex_num.imaginary()-b_new;
+		cout << endl << "Print the real and imaginary parts of the complex number for subtraction: " << endl;
+		cin >> real_new; cin >> imaginary_new;
+		complex_real = complex_num.real()-real_new;
+		complex_imaginary = complex_num.imaginary()-imaginary_new;
 
-		complex(a_new,b_new);
-		return b_new;
+		complex(complex_real,complex_imaginary);
 	}
 
-	double mult(complex complex_num)
+	void complex:: mult_com_num(complex complex_num)
 	{
-		double a_new = 0;
-		double b_new = 0;
-		int h = 2;
-
-		a_new = complex_num.real()*h;
-		b_new = complex_num.imaginary()*h;
-
-		complex(a_new,b_new);
-		return a_new;
-	}
-
-	double div(complex complex_num)
-	{
-		double a_new = 0;
-		double b_new = 0;
+		double real_new = 0.0;
+		double imaginary_new = 0.0;
 		int h = 0;
-		int temp = 2;
+
+		cout << endl << "Print the integer number for multiplication: " << endl;
+		cin >> h;
+
+		complex_real = complex_num.real()*h;
+		complex_imaginary = complex_num.imaginary()*h;
+
+		complex(complex_real,complex_imaginary);
+	}
+
+	void complex:: mult_for_com_num(complex complex_num)
+	{
+		double real_new = 0.0;
+		double imaginary_new = 0.0;
+
+		cout << endl << "Print the real and imaginary parts of the complex number for multiplication: " << endl;
+		cin >> real_new; cin >> imaginary_new;
+
+		complex_real = complex_num.real()*real_new - complex_num.imaginary()*imaginary_new;
+		complex_imaginary = complex_num.real()*imaginary_new + complex_num.imaginary()*real_new;
+
+		complex(complex_real,complex_imaginary);
+	}
+
+	bool complex:: div_com_num(complex complex_num)
+	{
+		double real_new = 0.0;
+		double imaginary_new = 0.0;
+		int h = 0;
+		int temp = 0;
+
+		cout << endl << "Print the integer number for division: " << endl;
+		cin >> temp;
 		try
 		{
 			if(temp == 0) throw 1;
@@ -80,14 +130,19 @@ public:
 		catch(int test)
 		{
 			cout << endl << "[-] Exception " << test << ": It can not be divided by zero!!!" << endl;
-			return 0;
+			return true;
 		}
 		h = temp;
 
-		a_new = (double)complex_num.real()/h;
-		b_new = (double)complex_num.imaginary()/h;
+		complex_real = (double)complex_num.real()/h;
+		complex_imaginary = (double)complex_num.imaginary()/h;
 
-		complex(a_new,b_new);
-		return b_new;
+		complex(complex_real,complex_imaginary);
 	}
-};
+
+	ostream& operator <<(ostream& print, complex& complex_num)
+	{
+		complex_num.printf(print);
+		return print;
+	}
+
