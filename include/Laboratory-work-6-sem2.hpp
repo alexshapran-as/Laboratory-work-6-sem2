@@ -61,11 +61,9 @@ public:
 
 	double complex:: add_com_num(complex& complex_num)
 	{
-		double real_new = 0.0;
+		double real_new = 0.2;
 		double imaginary_new = 0.0;
-
-		cout << endl << "Print the real and imaginary parts of the complex number for summation: " << endl;
-		cin >> real_new; cin >> imaginary_new;
+		
 		complex_real = complex_num.real()+real_new;
 		complex_imaginary = complex_num.imaginary()+imaginary_new;
 
@@ -75,7 +73,7 @@ public:
 
 	double complex:: sub_com_num(complex complex_num)
 	{
-		double real_new = 0.0;
+		double real_new = 1.2;
 		double imaginary_new = 0.0;
 		
 		cout << endl << "Print the real and imaginary parts of the complex number for subtraction: " << endl;
@@ -89,12 +87,7 @@ public:
 
 	double complex:: mult_com_num(complex complex_num)
 	{
-		double real_new = 0.0;
-		double imaginary_new = 0.0;
-		int h = 0;
-
-		cout << endl << "Print the integer number for multiplication: " << endl;
-		cin >> h;
+		int h = 2;
 
 		complex_real = complex_num.real()*h;
 		complex_imaginary = complex_num.imaginary()*h;
@@ -108,9 +101,6 @@ public:
 		double real_new = 0.0;
 		double imaginary_new = 0.0;
 
-		cout << endl << "Print the real and imaginary parts of the complex number for multiplication: " << endl;
-		cin >> real_new; cin >> imaginary_new;
-
 		complex_real = complex_num.real()*real_new - complex_num.imaginary()*imaginary_new;
 		complex_imaginary = complex_num.real()*imaginary_new + complex_num.imaginary()*real_new;
 
@@ -120,8 +110,6 @@ public:
 
 	bool complex:: div_com_num(complex complex_num)
 	{
-		double real_new = 0.0;
-		double imaginary_new = 0.0;
 		int h = 0;
 		int temp = 0;
 
