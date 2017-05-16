@@ -102,7 +102,7 @@ public:
 		complex_real = complex_num.real()*real_new - complex_num.imaginary()*imaginary_new;
 		complex_imaginary = complex_num.real()*imaginary_new + complex_num.imaginary()*real_new;
 
-		complex(complex_real,complex_imaginary);
+		//complex(complex_real,complex_imaginary);
 		return complex_real;
 	}
 
