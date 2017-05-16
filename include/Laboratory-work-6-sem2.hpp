@@ -33,22 +33,22 @@ public:
 	double real() { return complex_real; }
 	double imaginary() { return complex_imaginary; }
 
-	void add(complex& complex_num)
+	double add(complex& complex_num)
 	{
 		add_com_num(complex_num);
 	}
 
-	void sub(complex complex_num)
+	double sub(complex complex_num)
 	{
 		sub_com_num(complex_num);
 	}
 
-	void mult(complex complex_num)
+	double mult(complex complex_num)
 	{
 		mult_com_num(complex_num);
 	}
 
-	void mult_for_complex(complex complex_num)
+	double mult_for_complex(complex complex_num)
 	{
 		mult_for_com_num(complex_num);
 	}
