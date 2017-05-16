@@ -39,9 +39,9 @@ SCENARIO("mult")
 SCENARIO("div")
 {
     complex r(4,5);
-    bool rv = r.div(r);
+    int rv = r.div(r);
     
-    REQUIRE( rv == true);
+    REQUIRE( rv == 0);
 }
 
 
