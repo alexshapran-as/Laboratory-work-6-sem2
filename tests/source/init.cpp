@@ -38,10 +38,10 @@ SCENARIO("mult")
 }
 SCENARIO("mult_for_complex")
 {
-    complex r(4.2,2.8);
+    complex r(4,5);
     double rv = r.mult(r);
     
-    REQUIRE( rv == 12.46);
+    REQUIRE( rv == 13);
 }
 
 
