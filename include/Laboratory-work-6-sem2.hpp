@@ -96,8 +96,8 @@ public:
 
 	double complex:: mult_for_com_num(complex complex_num)
 	{
-		double real_new = 2.1;
-		double imaginary_new = -1.3;
+		double real_new = 2;
+		double imaginary_new = -1;
 
 		complex_real = complex_num.real()*real_new - complex_num.imaginary()*imaginary_new;
 		complex_imaginary = complex_num.real()*imaginary_new + complex_num.imaginary()*real_new;
