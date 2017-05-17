@@ -41,7 +41,7 @@ SCENARIO("mult_for_complex")
     complex r(4,5);
     double rv = r.mult(r);
     
-    REQUIRE( rv == 13);
+    REQUIRE( rv == 8);
 }
 
 
